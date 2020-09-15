@@ -1,5 +1,4 @@
-Lab 0 Writeup
-=============
+# Lab 0 Writeup
 
 My name: [your name here]
 

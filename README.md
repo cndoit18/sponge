@@ -4,9 +4,9 @@ For build prereqs, see [the CS144 VM setup instructions](https://web.stanford.ed
 
 To set up your build directory:
 
-	$ mkdir -p <path/to/sponge>/build
-	$ cd <path/to/sponge>/build
-	$ cmake ..
+    $ mkdir -p <path/to/sponge>/build
+    $ cd <path/to/sponge>/build
+    $ cmake ..
 
 **Note:** all further commands listed below should be run from the `build` dir.
 
@@ -20,11 +20,16 @@ You can use the `-j` switch to build in parallel, e.g.,
 
 To test (after building; make sure you've got the [build prereqs](https://web.stanford.edu/class/cs144/vm_howto) installed!)
 
-    $ make check_labN *(replacing N with a checkpoint number)*
+    $ make check_lab0
 
-The first time you run `make check_lab...`, it will run `sudo` to configure two
-[TUN](https://www.kernel.org/doc/Documentation/networking/tuntap.txt) devices for use during
-testing.
+or
+
+    $ make check_lab1
+
+etc.
+
+The first time you run a `make check`, it may run `sudo` to configure two
+[TUN](https://www.kernel.org/doc/Documentation/networking/tuntap.txt) devices for use during testing.
 
 ### build options
 
@@ -63,6 +68,14 @@ Of course, you can combine all of the above, e.g.,
 To generate documentation (you'll need `doxygen`; output will be in `build/doc/`):
 
     $ make doc
+
+To lint (you'll need `clang-tidy`):
+
+    $ make -j$(nproc) tidy
+
+To run cppcheck (you'll need `cppcheck`):
+
+    $ make cppcheck
 
 To format (you'll need `clang-format`):
 
